@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.erbe.reply.ui.home.HomeFragment"
+        android:label="HomeFragment">
+
+        <argument
+            android:name="mailbox"
+            app:argType="com.erbe.reply.ui.home.Mailbox"
+            android:defaultValue="INBOX" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.erbe.reply.ui.email.EmailFragment"
+        android:label="EmailFragment">
+
+        <argument
+            android:name="emailId"
+            app:argType="long" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/composeFragment"
+        android:name="com.erbe.reply.ui.compose.ComposeFragment"
+        android:label="ComposeFragment">
+
+        <argument
+            android:name="replyToEmailId"
+            app:argType="long"
+            android:defaultValue="-1L"/>
+        
+    </fragment>
+    
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.erbe.reply.ui.search.SearchFragment"
+        android:label="SearchFragment" />
+    
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@+id/homeFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/navigation_graph"
+        app:popUpToInclusive="true"/>
+    
+    <action
+        android:id="@+id/action_global_composeFragment"
+        app:destination="@+id/composeFragment" />
+    
+    <action
+        android:id="@+id/action_global_searchFragment"
+        app:destination="@+id/searchFragment" />
+    
+</navigation>
