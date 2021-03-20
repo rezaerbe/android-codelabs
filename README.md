@@ -30,7 +30,7 @@
 
 ### Preferences Datastore App
 
-<img src="https://raw.githubusercontent.com/rezaerbe/android-codelabs/master/Screenshot/PreferenceDatastore.jpg?raw=true" width=20% />
+<img src="https://raw.githubusercontent.com/rezaerbe/android-codelabs/master/Screenshot/PreferencesDatastore.jpg?raw=true" width=20% />
 
 ### Proto Datastore App
 
