@@ -3,9 +3,9 @@ package com.erbe.reply.ui.nav
 import android.annotation.SuppressLint
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.erbe.reply.util.normalize
 import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.erbe.reply.util.normalize
 import kotlin.math.max
 
 /**

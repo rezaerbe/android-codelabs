@@ -100,7 +100,7 @@ object EmailStore {
             listOf(AccountStore.getDefaultUserAccount()),
             "Recipe to try",
             "Raspberry Pie: We should make this pie recipe tonight! The filling is " +
-                "very quick to put together.",
+                    "very quick to put together.",
             mailbox = Mailbox.SENT
         ),
         Email(
@@ -111,50 +111,50 @@ object EmailStore {
             "Your shoes should be waiting for you at home!"
         ),
         Email(
-          8L,
-          AccountStore.getContactAccountById(13L),
-          listOf(AccountStore.getDefaultUserAccount()),
-          "Your update on Google Play Store is live!",
-          """
+            8L,
+            AccountStore.getContactAccountById(13L),
+            listOf(AccountStore.getDefaultUserAccount()),
+            "Your update on Google Play Store is live!",
+            """
               Your update, 0.1.1, is now live on the Play Store and available for your alpha users to start testing.
               
               Your alpha testers will be automatically notified. If you'd rather send them a link directly, go to your Google Play Console and follow the instructions for obtaining an open alpha testing link.
           """.trimIndent(),
-          mailbox = Mailbox.TRASH
+            mailbox = Mailbox.TRASH
         ),
         Email(
-          9L,
-          AccountStore.getContactAccountById(10L),
-          listOf(AccountStore.getDefaultUserAccount()),
-          "(No subject)",
-          """
+            9L,
+            AccountStore.getContactAccountById(10L),
+            listOf(AccountStore.getDefaultUserAccount()),
+            "(No subject)",
+            """
             Hey, 
             
             Wanted to email and see what you thought of
           """.trimIndent(),
-          mailbox = Mailbox.DRAFTS
+            mailbox = Mailbox.DRAFTS
         ),
         Email(
-          10L,
-          AccountStore.getContactAccountById(5L),
-          listOf(AccountStore.getDefaultUserAccount()),
-          "Try a free TrailGo account",
-          """
+            10L,
+            AccountStore.getContactAccountById(5L),
+            listOf(AccountStore.getDefaultUserAccount()),
+            "Try a free TrailGo account",
+            """
             Looking for the best hiking trails in your area? TrailGo gets you on the path to the outdoors faster than you can pack a sandwich. 
             
             Whether you're an experienced hiker or just looking to get outside for the afternoon, there's a segment that suits you.
           """.trimIndent(),
-          mailbox = Mailbox.TRASH
+            mailbox = Mailbox.TRASH
         ),
         Email(
-          10L,
-          AccountStore.getContactAccountById(5L),
-          listOf(AccountStore.getDefaultUserAccount()),
-          "Free money",
-          """
+            10L,
+            AccountStore.getContactAccountById(5L),
+            listOf(AccountStore.getDefaultUserAccount()),
+            "Free money",
+            """
             You've been selected as a winner in our latest raffle! To claim your prize, click on the link.
           """.trimIndent(),
-          mailbox = Mailbox.SPAM
+            mailbox = Mailbox.SPAM
         )
     )
 
@@ -266,4 +266,3 @@ object EmailStore {
         "Grocery coupons"
     )
 }
-

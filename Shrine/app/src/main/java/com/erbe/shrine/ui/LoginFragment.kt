@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.shr_login_fragment.view.*
 class LoginFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.shr_login_fragment, container, false)
 
@@ -27,7 +28,10 @@ class LoginFragment : Fragment() {
                 password_text_input.error = getString(R.string.shr_error_password)
             } else {
                 password_text_input.error = null // Clear the error
-                (activity as NavigationHost).navigateTo(ProductGridFragment(), false) // Navigate to the next Fragment
+                (activity as NavigationHost).navigateTo(
+                    ProductGridFragment(),
+                    false
+                ) // Navigate to the next Fragment
             }
         }
 

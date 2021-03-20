@@ -14,9 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
-import com.google.android.material.transition.MaterialSharedAxis
 import com.erbe.reply.R
 import com.erbe.reply.data.EmailStore
 import com.erbe.reply.databinding.ActivityMainBinding
@@ -24,22 +21,18 @@ import com.erbe.reply.ui.compose.ComposeFragmentDirections
 import com.erbe.reply.ui.email.EmailFragmentArgs
 import com.erbe.reply.ui.home.HomeFragmentDirections
 import com.erbe.reply.ui.home.Mailbox
-import com.erbe.reply.ui.nav.AlphaSlideAction
-import com.erbe.reply.ui.nav.BottomNavDrawerFragment
-import com.erbe.reply.ui.nav.ChangeSettingsMenuStateAction
-import com.erbe.reply.ui.nav.HalfClockwiseRotateSlideAction
-import com.erbe.reply.ui.nav.HalfCounterClockwiseRotateSlideAction
-import com.erbe.reply.ui.nav.NavigationAdapter
-import com.erbe.reply.ui.nav.NavigationModelItem
-import com.erbe.reply.ui.nav.ShowHideFabStateAction
+import com.erbe.reply.ui.nav.*
 import com.erbe.reply.ui.search.SearchFragmentDirections
 import com.erbe.reply.util.contentView
+import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import kotlin.LazyThreadSafetyMode.NONE
 
 class MainActivity : AppCompatActivity(),
-                     Toolbar.OnMenuItemClickListener,
-                     NavController.OnDestinationChangedListener,
-                     NavigationAdapter.NavigationAdapterListener {
+    Toolbar.OnMenuItemClickListener,
+    NavController.OnDestinationChangedListener,
+    NavigationAdapter.NavigationAdapterListener {
 
     private val binding: ActivityMainBinding by contentView(R.layout.activity_main)
     private val bottomNavDrawer: BottomNavDrawerFragment by lazy(NONE) {
@@ -52,9 +45,9 @@ class MainActivity : AppCompatActivity(),
 
     val currentNavigationFragment: Fragment?
         get() = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-                ?.childFragmentManager
-                ?.fragments
-                ?.first()
+            ?.childFragmentManager
+            ?.fragments
+            ?.first()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,11 +79,13 @@ class MainActivity : AppCompatActivity(),
             addOnStateChangedAction(ChangeSettingsMenuStateAction { showSettings ->
                 // Toggle between the current destination's BAB menu and the menu which should
                 // be displayed when the BottomNavigationDrawer is open.
-                binding.bottomAppBar.replaceMenu(if (showSettings) {
-                    R.menu.bottom_app_bar_settings_menu
-                } else {
-                    getBottomAppBarMenuForDestination()
-                })
+                binding.bottomAppBar.replaceMenu(
+                    if (showSettings) {
+                        R.menu.bottom_app_bar_settings_menu
+                    } else {
+                        getBottomAppBarMenuForDestination()
+                    }
+                )
             })
 
             addOnSandwichSlideAction(HalfCounterClockwiseRotateSlideAction(binding.bottomAppBarChevron))
@@ -207,6 +202,7 @@ class MainActivity : AppCompatActivity(),
                     bottomAppBar.visibility = View.GONE
                     fab.visibility = View.INVISIBLE
                 }
+
                 override fun onAnimationCancel(animation: Animator?) {
                     isCanceled = true
                 }
@@ -243,8 +239,8 @@ class MainActivity : AppCompatActivity(),
 
     private fun showDarkThemeMenu() {
         MenuBottomSheetDialogFragment
-          .newInstance(R.menu.dark_theme_bottom_sheet_menu)
-          .show(supportFragmentManager, null)
+            .newInstance(R.menu.dark_theme_bottom_sheet_menu)
+            .show(supportFragmentManager, null)
     }
 
     fun navigateToHome(@StringRes titleRes: Int, mailbox: Mailbox) {

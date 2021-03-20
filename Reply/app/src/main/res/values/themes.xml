@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--Final, top-level theme-->
-    <style name="Theme.Reply.DayNight" parent="Theme.Reply"/>
+    <style name="Theme.Reply.DayNight" parent="Theme.Reply" />
 
     <style name="Theme.Reply" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
@@ -27,9 +27,12 @@
         <item name="android:statusBarColor">@color/reply_blue_50_alpha_060</item>
         <item name="android:navigationBarColor">@color/nav_bar</item>
 
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Reply.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Reply.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Reply.LargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Reply.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Reply.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Reply.LargeComponent
+        </item>
 
         <!--Typography-->
         <item name="textAppearanceHeadline2">@style/TextAppearance.Reply.Headline2</item>
@@ -54,7 +57,9 @@
         <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
 
         <!--Styles-->
-        <item name="bottomAppBarStyle">@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface</item>
+        <item name="bottomAppBarStyle">
+            @style/Widget.MaterialComponents.BottomAppBar.PrimarySurface
+        </item>
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
         <item name="navigationViewStyle">@style/Widget.Reply.NavigationView</item>
         <item name="chipStyle">@style/Widget.Reply.Chip.Entry</item>

@@ -6,7 +6,6 @@ import androidx.work.WorkerParameters
 import com.erbe.workmanager.OUTPUT_PATH
 import timber.log.Timber
 import java.io.File
-import java.lang.Exception
 
 /**
  * Cleans up temporary files generated during blurring process

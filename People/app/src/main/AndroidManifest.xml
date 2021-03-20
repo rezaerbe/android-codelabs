@@ -85,8 +85,7 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name="com.erbe.people.util.ReplyReceiver" />
+        <receiver android:name="com.erbe.people.util.ReplyReceiver" />
 
         <provider
             android:name="com.erbe.people.util.AssetFileProvider"

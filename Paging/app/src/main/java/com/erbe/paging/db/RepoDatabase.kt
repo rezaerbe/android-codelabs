@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.erbe.paging.model.Repo
 
 @Database(
-    entities = [Repo::class, RemoteKeys::class],
-    version = 1,
-    exportSchema = false
+        entities = [Repo::class, RemoteKeys::class],
+        version = 1,
+        exportSchema = false
 )
 
 abstract class RepoDatabase : RoomDatabase() {
@@ -23,14 +23,14 @@ abstract class RepoDatabase : RoomDatabase() {
         private var INSTANCE: RepoDatabase? = null
 
         fun getInstance(context: Context): RepoDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE
-                    ?: buildDatabase(context).also { INSTANCE = it }
-            }
+                INSTANCE ?: synchronized(this) {
+                    INSTANCE
+                            ?: buildDatabase(context).also { INSTANCE = it }
+                }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext,
-                RepoDatabase::class.java, "Github.db")
-                .build()
+                Room.databaseBuilder(context.applicationContext,
+                        RepoDatabase::class.java, "Github.db")
+                        .build()
     }
 }

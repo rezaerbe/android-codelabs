@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--Final, top-level theme-->
-    <style name="Theme.Reply.DayNight" parent="Theme.Reply.Dark"/>
+    <style name="Theme.Reply.DayNight" parent="Theme.Reply.Dark" />
 
     <style name="Theme.Reply.Dark" parent="Theme.Reply">
         <!--Color-->

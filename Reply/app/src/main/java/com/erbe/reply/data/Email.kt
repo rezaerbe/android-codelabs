@@ -31,4 +31,3 @@ object EmailDiffCallback : DiffUtil.ItemCallback<Email>() {
     override fun areItemsTheSame(oldItem: Email, newItem: Email) = oldItem.id == newItem.id
     override fun areContentsTheSame(oldItem: Email, newItem: Email) = oldItem == newItem
 }
-

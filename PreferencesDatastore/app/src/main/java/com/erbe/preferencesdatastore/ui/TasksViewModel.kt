@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.erbe.preferencesdatastore.data.*
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 data class TasksUiModel(
     val tasks: List<Task>,

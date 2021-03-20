@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.material.transition.MaterialContainerTransform
 import com.erbe.reply.R
 import com.erbe.reply.data.EmailStore
 import com.erbe.reply.databinding.FragmentEmailBinding
 import com.erbe.reply.util.themeColor
+import com.google.android.material.transition.MaterialContainerTransform
 import kotlin.LazyThreadSafetyMode.NONE
 
 private const val MAX_GRID_SPANS = 3

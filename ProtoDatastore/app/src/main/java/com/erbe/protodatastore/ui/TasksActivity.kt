@@ -24,8 +24,8 @@ class TasksActivity : AppCompatActivity() {
         setContentView(view)
 
         viewModel = ViewModelProvider(
-            this,
-            TasksViewModelFactory(TasksRepository, UserPreferencesRepository.getInstance(this))
+                this,
+                TasksViewModelFactory(TasksRepository, UserPreferencesRepository.getInstance(this))
         ).get(TasksViewModel::class.java)
 
         setupRecyclerView()
@@ -64,8 +64,8 @@ class TasksActivity : AppCompatActivity() {
 
     private fun updateSort(sortOrder: SortOrder) {
         binding.sortDeadline.isChecked =
-            sortOrder == SortOrder.BY_DEADLINE || sortOrder == SortOrder.BY_DEADLINE_AND_PRIORITY
+                sortOrder == SortOrder.BY_DEADLINE || sortOrder == SortOrder.BY_DEADLINE_AND_PRIORITY
         binding.sortPriority.isChecked =
-            sortOrder == SortOrder.BY_PRIORITY || sortOrder == SortOrder.BY_DEADLINE_AND_PRIORITY
+                sortOrder == SortOrder.BY_PRIORITY || sortOrder == SortOrder.BY_DEADLINE_AND_PRIORITY
     }
 }

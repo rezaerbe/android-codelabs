@@ -49,7 +49,7 @@ class TaskViewHolder(
         )
 
         // set the priority color based on the task priority
-        val textColor = when(todo.priority) {
+        val textColor = when (todo.priority) {
             TaskPriority.HIGH -> R.color.red
             TaskPriority.MEDIUM -> R.color.yellow
             TaskPriority.LOW -> R.color.green

@@ -9,7 +9,6 @@ import com.erbe.advancedcoroutines.utils.CacheOnSuccess
 import com.erbe.advancedcoroutines.utils.ComparablePair
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.withContext
 
 /**
  * Repository module for handling data operations.
@@ -205,7 +204,8 @@ class PlantRepository private constructor(
 
     companion object {
         // For Singleton instantiation
-        @Volatile private var instance: PlantRepository? = null
+        @Volatile
+        private var instance: PlantRepository? = null
 
         fun getInstance(plantDao: PlantDao, plantService: NetworkService) =
             instance ?: synchronized(this) {

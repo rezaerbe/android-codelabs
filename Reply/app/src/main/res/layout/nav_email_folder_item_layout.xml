@@ -4,9 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="navEmailFolder"
             type="com.erbe.reply.ui.nav.NavigationModelItem.NavEmailFolder" />
+
         <variable
             name="navListener"
             type="com.erbe.reply.ui.nav.NavigationAdapter.NavigationAdapterListener" />

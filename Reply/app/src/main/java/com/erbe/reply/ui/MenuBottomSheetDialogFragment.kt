@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.MenuRes
+import com.erbe.reply.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationView
-import com.erbe.reply.R
 
 /**
  * A bottom sheet dialog for displaying a simple list of action items.
@@ -15,7 +15,8 @@ import com.erbe.reply.R
 class MenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private lateinit var navigationView: NavigationView
-    @MenuRes private var menuResId: Int = 0
+    @MenuRes
+    private var menuResId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +24,14 @@ class MenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(
-                R.layout.menu_bottom_sheet_dialog_layout,
-                container,
-                false
+            R.layout.menu_bottom_sheet_dialog_layout,
+            container,
+            false
         )
     }
 
@@ -58,4 +59,3 @@ class MenuBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
 }
-

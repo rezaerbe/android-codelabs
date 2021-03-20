@@ -90,7 +90,7 @@ class PlantListFragment : Fragment() {
     ) : ViewModelProvider.NewInstanceFactory() {
 
         @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>) = PlantListViewModel(repository) as  T
+        override fun <T : ViewModel?> create(modelClass: Class<T>) =
+            PlantListViewModel(repository) as T
     }
-
 }

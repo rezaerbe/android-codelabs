@@ -2,7 +2,7 @@ package com.erbe.dagger.storage
 
 import javax.inject.Inject
 
-class FakeStorage @Inject constructor(): Storage {
+class FakeStorage @Inject constructor() : Storage {
 
     private val map = mutableMapOf<String, String>()
 

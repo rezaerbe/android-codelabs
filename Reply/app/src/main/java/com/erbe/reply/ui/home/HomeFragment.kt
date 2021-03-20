@@ -12,8 +12,6 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
 import com.erbe.reply.R
 import com.erbe.reply.data.Email
 import com.erbe.reply.data.EmailStore
@@ -21,6 +19,8 @@ import com.erbe.reply.databinding.FragmentHomeBinding
 import com.erbe.reply.ui.MainActivity
 import com.erbe.reply.ui.MenuBottomSheetDialogFragment
 import com.erbe.reply.ui.nav.NavigationModel
+import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.MaterialFadeThrough
 
 /**
  * A [Fragment] that displays a list of emails.
@@ -103,8 +103,8 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
 
     override fun onEmailLongPressed(email: Email): Boolean {
         MenuBottomSheetDialogFragment
-          .newInstance(R.menu.email_bottom_sheet_menu)
-          .show(parentFragmentManager, null)
+            .newInstance(R.menu.email_bottom_sheet_menu)
+            .show(parentFragmentManager, null)
 
         return true
     }

@@ -12,7 +12,7 @@ import com.erbe.reply.databinding.EmailItemLayoutBinding
  * Simple adapter to display Email's in MainActivity.
  */
 class EmailAdapter(
-        private val listener: EmailAdapterListener
+    private val listener: EmailAdapterListener
 ) : ListAdapter<Email, EmailViewHolder>(EmailDiffCallback) {
 
     interface EmailAdapterListener {

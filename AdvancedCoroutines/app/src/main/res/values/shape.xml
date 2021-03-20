@@ -19,9 +19,7 @@
         <item name="cornerSizeBottomLeft">@dimen/button_corner_radius</item>
     </style>
 
-    <style
-        name="ShapeAppearance.Sunflower.FAB"
-        parent="ShapeAppearance.MaterialComponents.SmallComponent" />
+    <style name="ShapeAppearance.Sunflower.FAB" parent="ShapeAppearance.MaterialComponents.SmallComponent" />
 
     <!-- Add plant button -->
     <dimen name="button_corner_radius">12dp</dimen>

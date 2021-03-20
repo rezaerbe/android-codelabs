@@ -53,10 +53,10 @@ sealed class NavigationModelItem {
             newItem: NavigationModelItem
         ): Boolean {
             return when {
-                 oldItem is NavMenuItem && newItem is NavMenuItem ->
-                     oldItem.icon == newItem.icon &&
-                     oldItem.titleRes == newItem.titleRes &&
-                     oldItem.checked == newItem.checked
+                oldItem is NavMenuItem && newItem is NavMenuItem ->
+                    oldItem.icon == newItem.icon &&
+                            oldItem.titleRes == newItem.titleRes &&
+                            oldItem.checked == newItem.checked
                 oldItem is NavEmailFolder && newItem is NavEmailFolder ->
                     EmailFolderDiff.areContentsTheSame(oldItem.emailFolder, newItem.emailFolder)
                 else -> false

@@ -5,10 +5,10 @@ import android.widget.ImageView
 import androidx.annotation.FloatRange
 import androidx.core.view.marginTop
 import androidx.core.view.updatePadding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.shape.MaterialShapeDrawable
 import com.erbe.reply.R
 import com.erbe.reply.util.normalize
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.shape.MaterialShapeDrawable
 
 /**
  * An action to be performed when a bottom sheet's slide offset is changed.

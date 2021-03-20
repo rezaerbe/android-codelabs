@@ -1,16 +1,14 @@
 package com.erbe.workmanager
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.WorkInfo
 import com.bumptech.glide.Glide
 import com.erbe.workmanager.databinding.ActivityBlurBinding
-import com.erbe.workmanager.workers.makeStatusNotification
-import com.erbe.workmanager.workers.sleep
 
 class BlurActivity : AppCompatActivity() {
 

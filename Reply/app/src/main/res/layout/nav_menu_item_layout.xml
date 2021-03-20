@@ -4,11 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="com.erbe.reply.R" />
 
         <variable
             name="navMenuItem"
             type="com.erbe.reply.ui.nav.NavigationModelItem.NavMenuItem" />
+
         <variable
             name="navListener"
             type="com.erbe.reply.ui.nav.NavigationAdapter.NavigationAdapterListener" />

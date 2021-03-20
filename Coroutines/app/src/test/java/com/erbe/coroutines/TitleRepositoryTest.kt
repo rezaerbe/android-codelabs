@@ -6,10 +6,10 @@ import com.erbe.coroutines.fakes.MainNetworkFake
 import com.erbe.coroutines.fakes.TitleDaoFake
 import com.erbe.coroutines.main.TitleRefreshError
 import com.erbe.coroutines.main.TitleRepository
-import kotlinx.coroutines.test.runBlockingTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
 
@@ -23,8 +23,8 @@ class TitleRepositoryTest {
     fun whenRefreshTitleSuccess_insertRows() = runBlockingTest {
         val titleDao = TitleDaoFake("title")
         val subject = TitleRepository(
-                MainNetworkFake("OK"),
-                titleDao
+            MainNetworkFake("OK"),
+            titleDao
         )
 
         subject.refreshTitle()
@@ -35,8 +35,8 @@ class TitleRepositoryTest {
     fun whenRefreshTitleTimeout_throws() = runBlockingTest {
         val network = MainNetworkCompletableFake()
         val subject = TitleRepository(
-                network,
-                TitleDaoFake("title")
+            network,
+            TitleDaoFake("title")
         )
 
         launch {
@@ -45,5 +45,4 @@ class TitleRepositoryTest {
 
         advanceTimeBy(5_000)
     }
-
 }

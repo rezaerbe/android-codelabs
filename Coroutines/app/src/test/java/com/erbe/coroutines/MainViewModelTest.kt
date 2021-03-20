@@ -5,7 +5,6 @@ import com.erbe.coroutines.fakes.MainNetworkCompletableFake
 import com.erbe.coroutines.fakes.MainNetworkFake
 import com.erbe.coroutines.fakes.TitleDaoFake
 import com.erbe.coroutines.main.MainViewModel
-import com.erbe.coroutines.main.Title
 import com.erbe.coroutines.main.TitleRepository
 import com.erbe.coroutines.util.MainCoroutineScopeRule
 import com.erbe.coroutines.util.captureValues
@@ -40,10 +39,10 @@ class MainViewModelTest {
     @Before
     fun setup() {
         subject = MainViewModel(
-                TitleRepository(
-                        MainNetworkFake("OK"),
-                        TitleDaoFake("initial")
-                )
+            TitleRepository(
+                MainNetworkFake("OK"),
+                TitleDaoFake("initial")
+            )
         )
     }
 
@@ -65,10 +64,10 @@ class MainViewModelTest {
         val network = MainNetworkCompletableFake()
 
         subject = MainViewModel(
-                TitleRepository(
-                        network,
-                        TitleDaoFake("title")
-                )
+            TitleRepository(
+                network,
+                TitleDaoFake("title")
+            )
         )
 
         subject.spinner.captureValues {
@@ -84,10 +83,10 @@ class MainViewModelTest {
         val network = MainNetworkCompletableFake()
 
         subject = MainViewModel(
-                TitleRepository(
-                        network,
-                        TitleDaoFake("title")
-                )
+            TitleRepository(
+                network,
+                TitleDaoFake("title")
+            )
         )
 
         subject.spinner.captureValues {
@@ -104,10 +103,10 @@ class MainViewModelTest {
         val network = MainNetworkCompletableFake()
 
         subject = MainViewModel(
-                TitleRepository(
-                        network,
-                        TitleDaoFake("title")
-                )
+            TitleRepository(
+                network,
+                TitleDaoFake("title")
+            )
         )
 
         subject.onMainViewClicked()
@@ -122,10 +121,10 @@ class MainViewModelTest {
         val titleDao = TitleDaoFake("title")
 
         subject = MainViewModel(
-                TitleRepository(
-                        MainNetworkFake("OK"),
-                        titleDao
-                )
+            TitleRepository(
+                MainNetworkFake("OK"),
+                titleDao
+            )
         )
 
         subject.onMainViewClicked()
@@ -133,11 +132,14 @@ class MainViewModelTest {
     }
 
     private fun makeErrorResult(result: String): HttpException {
-        return HttpException(Response.error<String>(
+        return HttpException(
+            Response.error<String>(
                 500,
                 ResponseBody.create(
-                        MediaType.get("application/json"),
-                        "\"$result\"")
-        ))
+                    MediaType.get("application/json"),
+                    "\"$result\""
+                )
+            )
+        )
     }
 }

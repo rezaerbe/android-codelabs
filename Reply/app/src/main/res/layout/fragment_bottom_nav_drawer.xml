@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="currentUserAccount"
             type="com.erbe.reply.data.Account" />
@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:visibility="gone"
             android:alpha="0"
-            android:background="?attr/scrimBackground"/>
+            android:background="?attr/scrimBackground" />
 
         <FrameLayout
             android:id="@+id/background_container"
@@ -41,7 +41,7 @@
                 android:alpha="0.0"
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"/>
+                android:orientation="vertical" />
 
             <ImageView
                 android:id="@+id/profile_image_view"
@@ -53,7 +53,7 @@
                 android:contentDescription="@string/bottom_nav_drawer_profile_image_content_desc"
                 app:glideSrc="@{currentUserAccount.avatar}"
                 app:glideCenterCrop="@{true}"
-                app:glideCircularCrop="@{true}"/>
+                app:glideCircularCrop="@{true}" />
 
             <!--Container to act as the drawer's foreground container and hold all navigation-->
             <LinearLayout

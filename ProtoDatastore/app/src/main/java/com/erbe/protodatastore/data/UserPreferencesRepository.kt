@@ -24,17 +24,17 @@ class UserPreferencesRepository private constructor(context: Context) {
     private val TAG: String = "UserPreferencesRepo"
 
     private val sharedPrefsMigration = SharedPreferencesMigration(
-        context,
-        USER_PREFERENCES_NAME
+            context,
+            USER_PREFERENCES_NAME
     ) { sharedPrefs: SharedPreferencesView, currentData: UserPreferences ->
         // Define the mapping from SharedPreferences to UserPreferences
         if (currentData.sortOrder == SortOrder.UNSPECIFIED) {
             currentData.toBuilder().setSortOrder(
-                SortOrder.valueOf(
-                    sharedPrefs.getString(
-                        SORT_ORDER_KEY, SortOrder.NONE.name
-                    )!!
-                )
+                    SortOrder.valueOf(
+                            sharedPrefs.getString(
+                                    SORT_ORDER_KEY, SortOrder.NONE.name
+                            )!!
+                    )
             ).build()
         } else {
             currentData
@@ -43,21 +43,21 @@ class UserPreferencesRepository private constructor(context: Context) {
 
     // Build the DataStore
     private val userPreferencesStore: DataStore<UserPreferences> = context.createDataStore(
-        fileName = DATA_STORE_FILE_NAME,
-        serializer = UserPreferencesSerializer,
-        migrations = listOf(sharedPrefsMigration)
+            fileName = DATA_STORE_FILE_NAME,
+            serializer = UserPreferencesSerializer,
+            migrations = listOf(sharedPrefsMigration)
     )
 
     val userPreferencesFlow: Flow<UserPreferences> = userPreferencesStore.data
-        .catch { exception ->
-            // dataStore.data throws an IOException when an error is encountered when reading data
-            if (exception is IOException) {
-                Log.e(TAG, "Error reading sort order preferences.", exception)
-                emit(UserPreferences.getDefaultInstance())
-            } else {
-                throw exception
+            .catch { exception ->
+                // dataStore.data throws an IOException when an error is encountered when reading data
+                if (exception is IOException) {
+                    Log.e(TAG, "Error reading sort order preferences.", exception)
+                    emit(UserPreferences.getDefaultInstance())
+                } else {
+                    throw exception
+                }
             }
-        }
 
     /**
      * Enable / disable sort by deadline.
@@ -68,19 +68,19 @@ class UserPreferencesRepository private constructor(context: Context) {
         userPreferencesStore.updateData { currentPreferences ->
             val currentOrder = currentPreferences.sortOrder
             val newSortOrder =
-                if (enable) {
-                    if (currentOrder == SortOrder.BY_PRIORITY) {
-                        SortOrder.BY_DEADLINE_AND_PRIORITY
+                    if (enable) {
+                        if (currentOrder == SortOrder.BY_PRIORITY) {
+                            SortOrder.BY_DEADLINE_AND_PRIORITY
+                        } else {
+                            SortOrder.BY_DEADLINE
+                        }
                     } else {
-                        SortOrder.BY_DEADLINE
+                        if (currentOrder == SortOrder.BY_DEADLINE_AND_PRIORITY) {
+                            SortOrder.BY_PRIORITY
+                        } else {
+                            SortOrder.NONE
+                        }
                     }
-                } else {
-                    if (currentOrder == SortOrder.BY_DEADLINE_AND_PRIORITY) {
-                        SortOrder.BY_PRIORITY
-                    } else {
-                        SortOrder.NONE
-                    }
-                }
             currentPreferences.toBuilder().setSortOrder(newSortOrder).build()
         }
     }
@@ -94,19 +94,19 @@ class UserPreferencesRepository private constructor(context: Context) {
         userPreferencesStore.updateData { currentPreferences ->
             val currentOrder = currentPreferences.sortOrder
             val newSortOrder =
-                if (enable) {
-                    if (currentOrder == SortOrder.BY_DEADLINE) {
-                        SortOrder.BY_DEADLINE_AND_PRIORITY
+                    if (enable) {
+                        if (currentOrder == SortOrder.BY_DEADLINE) {
+                            SortOrder.BY_DEADLINE_AND_PRIORITY
+                        } else {
+                            SortOrder.BY_PRIORITY
+                        }
                     } else {
-                        SortOrder.BY_PRIORITY
+                        if (currentOrder == SortOrder.BY_DEADLINE_AND_PRIORITY) {
+                            SortOrder.BY_DEADLINE
+                        } else {
+                            SortOrder.NONE
+                        }
                     }
-                } else {
-                    if (currentOrder == SortOrder.BY_DEADLINE_AND_PRIORITY) {
-                        SortOrder.BY_DEADLINE
-                    } else {
-                        SortOrder.NONE
-                    }
-                }
             currentPreferences.toBuilder().setSortOrder(newSortOrder).build()
         }
     }

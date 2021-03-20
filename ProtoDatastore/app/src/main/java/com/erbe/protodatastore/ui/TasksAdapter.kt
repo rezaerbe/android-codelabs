@@ -21,10 +21,10 @@ class TasksAdapter : ListAdapter<Task, TaskViewHolder>(TASKS_COMPARATOR) {
     companion object {
         private val TASKS_COMPARATOR = object : DiffUtil.ItemCallback<Task>() {
             override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean =
-                oldItem.name == newItem.name
+                    oldItem.name == newItem.name
 
             override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean =
-                oldItem == newItem
+                    oldItem == newItem
         }
     }
 }

@@ -2,9 +2,7 @@ package com.erbe.daggertohilt.storage
 
 import com.erbe.daggertohilt.user.UserDataRepository
 import com.erbe.daggertohilt.user.UserManager
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 

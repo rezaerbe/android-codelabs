@@ -2,12 +2,7 @@ package com.erbe.reply.ui.home
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.ColorFilter
-import android.graphics.Paint
-import android.graphics.PixelFormat
-import android.graphics.Rect
-import android.graphics.RectF
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.appcompat.content.res.AppCompatResources
@@ -47,8 +42,10 @@ class EmailSwipeActionDrawable(context: Context) : Drawable() {
     private val iconIntrinsicWidth = icon.intrinsicWidth
     private val iconIntrinsicHeight = icon.intrinsicHeight
 
-    @ColorInt private val iconTint = context.themeColor(R.attr.colorOnBackground)
-    @ColorInt private val iconTintActive = context.themeColor(R.attr.colorOnSecondary)
+    @ColorInt
+    private val iconTint = context.themeColor(R.attr.colorOnBackground)
+    @ColorInt
+    private val iconTintActive = context.themeColor(R.attr.colorOnSecondary)
 
     // Amount that we should 'overshoot' the icon's scale by when animating.
     private val iconMaxScaleAddition = 0.5F
@@ -66,7 +63,7 @@ class EmailSwipeActionDrawable(context: Context) : Drawable() {
     private val interp = context.themeInterpolator(R.attr.motionInterpolatorPersistent)
 
     override fun onBoundsChange(bounds: Rect?) {
-        if (bounds == null)  return
+        if (bounds == null) return
         update()
     }
 

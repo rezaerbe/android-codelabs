@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="viewmodel"
-            type="com.erbe.databinding.data.SimpleViewModelSolution"/>
+            type="com.erbe.databinding.data.SimpleViewModelSolution" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +25,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_label"/>
+            app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
         <!-- A simple binding between a TextView and a string observable in the ViewModel -->
         <TextView
@@ -40,7 +39,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lastname_label"/>
+            app:layout_constraintTop_toBottomOf="@+id/lastname_label" />
 
         <!-- A custom Binding Adapter (`app:popularityIcon`) is used passing `viewmodel.popularity`
         as a parameter. Because it's a @Bindable property, the ImageView is automatically updated.
@@ -59,7 +58,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed"
-            app:popularityIcon="@{viewmodel.popularity}"/>
+            app:popularityIcon="@{viewmodel.popularity}" />
 
         <!-- Conversions like Integer to String are expressions simple enough for the layout. An
         alternative would be to create a getter in the ViewModel to expose likes as Strings. -->
@@ -73,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="@+id/likes_label"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/likes_label"
-            app:layout_constraintTop_toBottomOf="@+id/likes_label"/>
+            app:layout_constraintTop_toBottomOf="@+id/likes_label" />
 
         <!-- Listeners can accept lambdas so in this case the ViewModel deals with the event,
         bypassing the activity. -->
@@ -88,7 +87,7 @@
             app:layout_constraintBottom_toTopOf="@+id/progressBar"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/likes"/>
+            app:layout_constraintTop_toBottomOf="@+id/likes" />
 
         <TextView
             android:id="@+id/name_label"
@@ -98,7 +97,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/name_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/lastname_label"
@@ -108,7 +107,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/last_name_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name"/>
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id="@+id/likes_label"
@@ -122,7 +121,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <!-- android:progressTint is only available in API 21+ so we deal with that in the
          Binding Adapter. -->
@@ -143,8 +142,8 @@
             app:layout_constraintTop_toBottomOf="@+id/like_button"
             app:progressScaled="@{viewmodel.likes}"
             app:progressTint="@{viewmodel.popularity}"
-            tools:progressBackgroundTint="@android:color/darker_gray"/>
-        
+            tools:progressBackgroundTint="@android:color/darker_gray" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
 </layout>

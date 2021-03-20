@@ -45,7 +45,7 @@ class CacheOnSuccessTest {
         assertThat(counter).isEqualTo(1)
     }
 
-    class SomeException: Throwable()
+    class SomeException : Throwable()
 
     @Test
     fun getOrAwait_throws() = runBlockingTest {

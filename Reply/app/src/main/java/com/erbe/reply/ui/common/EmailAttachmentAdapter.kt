@@ -23,12 +23,14 @@ abstract class EmailAttachmentAdapter : RecyclerView.Adapter<EmailAttachmentView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmailAttachmentViewHolder {
-        return EmailAttachmentViewHolder(DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            viewType,
-            parent,
-            false
-        ))
+        return EmailAttachmentViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                viewType,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: EmailAttachmentViewHolder, position: Int) {

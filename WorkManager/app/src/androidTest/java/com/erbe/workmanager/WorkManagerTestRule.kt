@@ -20,11 +20,11 @@ class WorkManagerTestRule : TestWatcher() {
         targetContext = InstrumentationRegistry.getInstrumentation().targetContext
         testContext = InstrumentationRegistry.getInstrumentation().context
         configuration = Configuration.Builder()
-                // Set log level to Log.DEBUG to make it easier to debug
-                .setMinimumLoggingLevel(Log.DEBUG)
-                // Use a SynchronousExecutor here to make it easier to write tests
-                .setExecutor(SynchronousExecutor())
-                .build()
+            // Set log level to Log.DEBUG to make it easier to debug
+            .setMinimumLoggingLevel(Log.DEBUG)
+            // Use a SynchronousExecutor here to make it easier to write tests
+            .setExecutor(SynchronousExecutor())
+            .build()
 
         // Initialize WorkManager for instrumentation tests.
         WorkManagerTestInitHelper.initializeTestWorkManager(targetContext, configuration)

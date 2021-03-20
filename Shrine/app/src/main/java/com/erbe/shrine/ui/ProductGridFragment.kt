@@ -33,13 +33,21 @@ class ProductGridFragment : Fragment() {
 
         // Inflate the layout for this fragment with the ProductGrid theme
         (activity as AppCompatActivity).setSupportActionBar(view.app_bar)
-        view.app_bar.setNavigationOnClickListener(NavigationIconClickListener(
-            requireActivity(),
-            view.product_grid,
-            AccelerateDecelerateInterpolator(),
-            ContextCompat.getDrawable(requireContext(), R.drawable.shr_branded_menu), // Menu open icon
-            ContextCompat.getDrawable(requireContext(), R.drawable.shr_close_menu) // Menu close icon
-        ))
+        view.app_bar.setNavigationOnClickListener(
+            NavigationIconClickListener(
+                requireActivity(),
+                view.product_grid,
+                AccelerateDecelerateInterpolator(),
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.shr_branded_menu
+                ), // Menu open icon
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.shr_close_menu
+                ) // Menu close icon
+            )
+        )
 
         // Set up the RecyclerView
         view.recycler_view.setHasFixedSize(true)
@@ -51,15 +59,19 @@ class ProductGridFragment : Fragment() {
         }
         view.recycler_view.layoutManager = gridLayoutManager
         val adapter = StaggeredProductCardRecyclerViewAdapter(
-            ProductEntry.initProductEntryList(resources))
+            ProductEntry.initProductEntryList(resources)
+        )
         view.recycler_view.adapter = adapter
-        val largePadding = resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
-        val smallPadding = resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
+        val largePadding =
+            resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
+        val smallPadding =
+            resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
         view.recycler_view.addItemDecoration(ProductGridItemDecoration(largePadding, smallPadding))
 
         // Set cut corner background for API 23+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.product_grid.background = context?.getDrawable(R.drawable.shr_product_grid_background_shape)
+            view.product_grid.background =
+                context?.getDrawable(R.drawable.shr_product_grid_background_shape)
         }
 
         return view

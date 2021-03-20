@@ -179,6 +179,7 @@ object AccountStore {
      * Get the contact of the current user with the given [accountId].
      */
     fun getContactAccountById(accountId: Long): Account {
-        return allUserContactAccounts.firstOrNull { it.id == accountId } ?: allUserContactAccounts.first()
+        return allUserContactAccounts.firstOrNull { it.id == accountId }
+            ?: allUserContactAccounts.first()
     }
 }

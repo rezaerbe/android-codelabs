@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import java.io.*
 import java.util.*
-import kotlin.jvm.Throws
 
 /**
  * Copy a file from the asset folder in the testContext to the OUTPUT_PATH in the target context.
@@ -52,7 +51,8 @@ fun uriFileExists(targetCtx: Context, uri: String?): Boolean {
     // Create a bitmap
     try {
         BitmapFactory.decodeStream(
-                resolver.openInputStream(Uri.parse(uri)))
+            resolver.openInputStream(Uri.parse(uri))
+        )
     } catch (e: FileNotFoundException) {
         return false
     }

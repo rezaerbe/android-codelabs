@@ -1,15 +1,15 @@
 package com.erbe.advancedcoroutines.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Path
+import android.graphics.RectF
 import android.util.AttributeSet
 import com.google.android.material.R
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.shape.ShapeAppearancePathProvider
-import android.annotation.SuppressLint
-import android.graphics.Path
-import android.graphics.RectF
 
 /**
  * A Card view that clips the content of any shape, this should be done upstream in card,

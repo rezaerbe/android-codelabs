@@ -15,7 +15,7 @@ interface ViewModelFactoryProvider {
 val Injector: ViewModelFactoryProvider
     get() = currentInjector
 
-private object DefaultViewModelProvider: ViewModelFactoryProvider {
+private object DefaultViewModelProvider : ViewModelFactoryProvider {
     private fun getPlantRepository(context: Context): PlantRepository {
         return PlantRepository.getInstance(
             plantDao(context),
@@ -36,7 +36,8 @@ private object DefaultViewModelProvider: ViewModelFactoryProvider {
 
 private object Lock
 
-@Volatile private var currentInjector: ViewModelFactoryProvider =
+@Volatile
+private var currentInjector: ViewModelFactoryProvider =
     DefaultViewModelProvider
 
 

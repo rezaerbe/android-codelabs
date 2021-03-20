@@ -3,7 +3,6 @@ package com.erbe.dagger
 import com.erbe.dagger.di.AppComponent
 import com.erbe.dagger.di.DaggerTestAppComponent
 
-
 /**
  * MyTestApplication will override MyApplication in android tests
  */

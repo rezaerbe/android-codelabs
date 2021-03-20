@@ -88,7 +88,8 @@ fun blurBitmap(bitmap: Bitmap, applicationContext: Context): Bitmap {
 
         // Create the output bitmap
         val output = Bitmap.createBitmap(
-            bitmap.width, bitmap.height, bitmap.config)
+            bitmap.width, bitmap.height, bitmap.config
+        )
 
         // Blur the image
         rsContext = RenderScript.create(applicationContext, RenderScript.ContextType.DEBUG)

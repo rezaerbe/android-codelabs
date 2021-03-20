@@ -13,14 +13,14 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 data class TasksUiModel(
-    val tasks: List<Task>,
-    val showCompleted: Boolean,
-    val sortOrder: SortOrder
+        val tasks: List<Task>,
+        val showCompleted: Boolean,
+        val sortOrder: SortOrder
 )
 
 class TasksViewModel(
-    repository: TasksRepository,
-    private val userPreferencesRepository: UserPreferencesRepository
+        repository: TasksRepository,
+        private val userPreferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
 
     private val userPreferencesFlow = userPreferencesRepository.userPreferencesFlow
@@ -28,25 +28,25 @@ class TasksViewModel(
     // Every time the sort order, the show completed filter or the list of tasks emit,
     // we should recreate the list of tasks
     private val tasksUiModelFlow = combine(
-        repository.tasks,
-        userPreferencesFlow
+            repository.tasks,
+            userPreferencesFlow
     ) { tasks: List<Task>, userPreferences: UserPreferences ->
         return@combine TasksUiModel(
-            tasks = filterSortTasks(
-                tasks,
-                userPreferences.showCompleted,
-                userPreferences.sortOrder
-            ),
-            showCompleted = userPreferences.showCompleted,
-            sortOrder = userPreferences.sortOrder
+                tasks = filterSortTasks(
+                        tasks,
+                        userPreferences.showCompleted,
+                        userPreferences.sortOrder
+                ),
+                showCompleted = userPreferences.showCompleted,
+                sortOrder = userPreferences.sortOrder
         )
     }
     val tasksUiModel = tasksUiModelFlow.asLiveData()
 
     private fun filterSortTasks(
-        tasks: List<Task>,
-        showCompleted: Boolean,
-        sortOrder: SortOrder
+            tasks: List<Task>,
+            showCompleted: Boolean,
+            sortOrder: SortOrder
     ): List<Task> {
         // filter the tasks
         val filteredTasks = if (showCompleted) {
@@ -61,7 +61,7 @@ class TasksViewModel(
             SortOrder.BY_DEADLINE -> filteredTasks.sortedByDescending { it.deadline }
             SortOrder.BY_PRIORITY -> filteredTasks.sortedBy { it.priority }
             SortOrder.BY_DEADLINE_AND_PRIORITY -> filteredTasks.sortedWith(
-                compareByDescending<Task> { it.deadline }.thenBy { it.priority }
+                    compareByDescending<Task> { it.deadline }.thenBy { it.priority }
             )
             // We shouldn't get any other values
             else -> throw UnsupportedOperationException("$sortOrder not supported")
@@ -88,8 +88,8 @@ class TasksViewModel(
 }
 
 class TasksViewModelFactory(
-    private val repository: TasksRepository,
-    private val userPreferencesRepository: UserPreferencesRepository
+        private val repository: TasksRepository,
+        private val userPreferencesRepository: UserPreferencesRepository
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

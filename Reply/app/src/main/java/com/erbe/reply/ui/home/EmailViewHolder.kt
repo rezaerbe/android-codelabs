@@ -13,11 +13,11 @@ import kotlin.math.abs
 class EmailViewHolder(
     private val binding: EmailItemLayoutBinding,
     listener: EmailAdapter.EmailAdapterListener
-): RecyclerView.ViewHolder(binding.root), ReboundingSwipeActionCallback.ReboundableViewHolder {
+) : RecyclerView.ViewHolder(binding.root), ReboundingSwipeActionCallback.ReboundableViewHolder {
 
     private val attachmentAdapter = object : EmailAttachmentAdapter() {
-        override fun getLayoutIdForPosition(position: Int): Int
-            = R.layout.email_attachment_preview_item_layout
+        override fun getLayoutIdForPosition(position: Int): Int =
+            R.layout.email_attachment_preview_item_layout
     }
 
     private val starredCornerSize =

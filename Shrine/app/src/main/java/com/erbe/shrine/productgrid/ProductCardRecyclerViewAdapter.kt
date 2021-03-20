@@ -10,10 +10,12 @@ import com.erbe.shrine.network.ProductEntry
 /**
  * Adapter used to show a simple grid of products.
  */
-class ProductCardRecyclerViewAdapter internal constructor(private val productList: List<ProductEntry>) : RecyclerView.Adapter<ProductCardViewHolder>() {
+class ProductCardRecyclerViewAdapter internal constructor(private val productList: List<ProductEntry>) :
+    RecyclerView.Adapter<ProductCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductCardViewHolder {
-        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.shr_product_card, parent, false)
+        val layoutView =
+            LayoutInflater.from(parent.context).inflate(R.layout.shr_product_card, parent, false)
         return ProductCardViewHolder(layoutView)
     }
 
@@ -29,5 +31,4 @@ class ProductCardRecyclerViewAdapter internal constructor(private val productLis
     override fun getItemCount(): Int {
         return productList.size
     }
-
 }

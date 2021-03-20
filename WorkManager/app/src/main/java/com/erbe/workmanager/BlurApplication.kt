@@ -1,10 +1,10 @@
 package com.erbe.workmanager
 
 import android.app.Application
-import androidx.viewbinding.BuildConfig
-import androidx.work.Configuration
 import android.util.Log.DEBUG
 import android.util.Log.ERROR
+import androidx.viewbinding.BuildConfig
+import androidx.work.Configuration
 import timber.log.Timber
 
 class BlurApplication() : Application(), Configuration.Provider {

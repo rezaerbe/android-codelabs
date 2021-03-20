@@ -18,4 +18,5 @@ data class Plant(
 
 @Suppress("EXPERIMENTAL_FEATURE_WARNING")
 inline class GrowZone(val number: Int)
+
 val NoGrowZone = GrowZone(-1)

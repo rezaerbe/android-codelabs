@@ -9,13 +9,13 @@ import com.erbe.protodatastore.data.Task
 import com.erbe.protodatastore.data.TaskPriority
 import com.erbe.protodatastore.databinding.TaskViewItemBinding
 import java.text.SimpleDateFormat
-import java.util.Locale
+import java.util.*
 
 /**
  * Holder for a task item in the tasks list
  */
 class TaskViewHolder(
-    private val binding: TaskViewItemBinding
+        private val binding: TaskViewItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     // Format date as: Apr 6, 2020
@@ -35,17 +35,17 @@ class TaskViewHolder(
             R.color.white
         }
         itemView.setBackgroundColor(
-            ContextCompat.getColor(
-                itemView.context,
-                color
-            )
+                ContextCompat.getColor(
+                        itemView.context,
+                        color
+                )
         )
     }
 
     private fun setTaskPriority(todo: Task) {
         binding.priority.text = itemView.context.resources.getString(
-            R.string.priority_value,
-            todo.priority.name
+                R.string.priority_value,
+                todo.priority.name
         )
 
         // set the priority color based on the task priority
@@ -60,7 +60,7 @@ class TaskViewHolder(
     companion object {
         fun create(parent: ViewGroup): TaskViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.task_view_item, parent, false)
+                    .inflate(R.layout.task_view_item, parent, false)
             val binding = TaskViewItemBinding.bind(view)
             return TaskViewHolder(binding)
         }

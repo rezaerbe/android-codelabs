@@ -8,7 +8,7 @@
         android:valueTo="1"
         android:duration="@integer/reply_motion_duration_small"
         android:repeatMode="restart"
-        android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        android:interpolator="@android:interpolator/fast_out_slow_in" />
 
     <objectAnimator
         android:propertyName="iconScale"
@@ -16,7 +16,7 @@
         android:valueTo="1"
         android:duration="@integer/reply_motion_duration_small"
         android:repeatMode="restart"
-        android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        android:interpolator="@android:interpolator/fast_out_slow_in" />
 
     <objectAnimator
         android:propertyName="opacity"
@@ -24,6 +24,6 @@
         android:valueTo="1"
         android:duration="@integer/reply_motion_duration_small"
         android:repeatMode="restart"
-        android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        android:interpolator="@android:interpolator/fast_out_slow_in" />
 
 </set>

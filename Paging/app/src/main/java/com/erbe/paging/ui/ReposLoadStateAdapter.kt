@@ -12,7 +12,10 @@ class ReposLoadStateAdapter(
         holder.bind(loadState)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): ReposLoadStateViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        loadState: LoadState
+    ): ReposLoadStateViewHolder {
         return ReposLoadStateViewHolder.create(parent, retry)
     }
 }

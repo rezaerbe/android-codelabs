@@ -78,7 +78,7 @@ class ReboundingSwipeActionCallback : ItemTouchHelper.SimpleCallback(
         // After animations to replace view have run, notify viewHolders that they have
         // been swiped. This waits for animations to finish so RecyclerView's DefaultItemAnimator
         // doesn't try to run updating animations while swipe animations are still running.
-        if (currentTargetHasMetThresholdOnce && viewHolder is ReboundableViewHolder){
+        if (currentTargetHasMetThresholdOnce && viewHolder is ReboundableViewHolder) {
             currentTargetHasMetThresholdOnce = false
             viewHolder.onRebounded()
         }
@@ -110,7 +110,8 @@ class ReboundingSwipeActionCallback : ItemTouchHelper.SimpleCallback(
         translateReboundingView(itemView, viewHolder, dX)
 
         if (currentSwipePercentage >= trueSwipeThreshold &&
-            !currentTargetHasMetThresholdOnce) {
+            !currentTargetHasMetThresholdOnce
+        ) {
             currentTargetHasMetThresholdOnce = true
         }
     }
@@ -124,10 +125,12 @@ class ReboundingSwipeActionCallback : ItemTouchHelper.SimpleCallback(
         // affect to the item.
         val swipeDismissDistanceHorizontal = itemView.width * trueSwipeThreshold
         val dragFraction = ln(
-            (1 + (dX / swipeDismissDistanceHorizontal)).toDouble()) / ln(3.toDouble()
+            (1 + (dX / swipeDismissDistanceHorizontal)).toDouble()
+        ) / ln(
+            3.toDouble()
         )
         val dragTo = dragFraction * swipeDismissDistanceHorizontal *
-            swipeReboundingElasticity
+                swipeReboundingElasticity
 
         viewHolder.reboundableView.translationX = dragTo.toFloat()
     }

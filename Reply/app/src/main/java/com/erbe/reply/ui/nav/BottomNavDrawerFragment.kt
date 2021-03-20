@@ -10,13 +10,6 @@ import android.widget.FrameLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
-import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
-import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED
-import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
-import com.google.android.material.bottomsheet.BottomSheetBehavior.from
-import com.google.android.material.shape.MaterialShapeDrawable
 import com.erbe.reply.R
 import com.erbe.reply.data.Account
 import com.erbe.reply.data.AccountStore
@@ -24,6 +17,9 @@ import com.erbe.reply.databinding.FragmentBottomNavDrawerBinding
 import com.erbe.reply.util.lerp
 import com.erbe.reply.util.themeColor
 import com.erbe.reply.util.themeInterpolator
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.*
+import com.google.android.material.shape.MaterialShapeDrawable
 import kotlin.LazyThreadSafetyMode.NONE
 import kotlin.math.abs
 
@@ -68,7 +64,7 @@ class BottomNavDrawerFragment :
     private val sandwichSlideActions = mutableListOf<OnSandwichSlideAction>()
 
     private val navigationListeners: MutableList<NavigationAdapter.NavigationAdapterListener> =
-      mutableListOf()
+        mutableListOf()
 
     private val backgroundShapeDrawable: MaterialShapeDrawable by lazy(NONE) {
         val backgroundContext = binding.backgroundContainer.context
@@ -118,13 +114,14 @@ class BottomNavDrawerFragment :
     private val sandwichInterp by lazy(NONE) {
         requireContext().themeInterpolator(R.attr.motionInterpolatorPersistent)
     }
+
     // Progress value which drives the animation of the sandwiching account picker. Responsible
     // for both calling progress updates and state updates.
     private var sandwichProgress: Float = 0F
         set(value) {
-            if (field != value)  {
+            if (field != value) {
                 onSandwichProgressChanged(value)
-                val newState = when(value) {
+                val newState = when (value) {
                     0F -> SandwichState.CLOSED
                     1F -> SandwichState.OPEN
                     else -> SandwichState.SETTLING
@@ -177,11 +174,13 @@ class BottomNavDrawerFragment :
                 addOnSlideAction(AlphaSlideAction(scrimView))
                 addOnStateChangedAction(VisibilityStateAction(scrimView))
                 // Foreground transforms
-                addOnSlideAction(ForegroundSheetTransformSlideAction(
-                    binding.foregroundContainer,
-                    foregroundShapeDrawable,
-                    binding.profileImageView
-                ))
+                addOnSlideAction(
+                    ForegroundSheetTransformSlideAction(
+                        binding.foregroundContainer,
+                        foregroundShapeDrawable,
+                        binding.profileImageView
+                    )
+                )
                 // Recycler transforms
                 addOnStateChangedAction(ScrollToTopStateAction(navRecyclerView))
                 // Close the sandwiching account picker if open
@@ -226,9 +225,9 @@ class BottomNavDrawerFragment :
             sandwichState == SandwichState.OPEN -> toggleSandwich()
             behavior.state == STATE_HIDDEN -> open()
             behavior.state == STATE_HIDDEN
-                || behavior.state == STATE_HALF_EXPANDED
-                || behavior.state == STATE_EXPANDED
-                || behavior.state == STATE_COLLAPSED -> close()
+                    || behavior.state == STATE_HALF_EXPANDED
+                    || behavior.state == STATE_EXPANDED
+                    || behavior.state == STATE_COLLAPSED -> close()
         }
     }
 
@@ -299,7 +298,7 @@ class BottomNavDrawerFragment :
             addUpdateListener { sandwichProgress = animatedValue as Float }
             interpolator = sandwichInterp
             duration = (abs(newProgress - initialProgress) *
-                resources.getInteger(R.integer.reply_motion_duration_medium)).toLong()
+                    resources.getInteger(R.integer.reply_motion_duration_medium)).toLong()
         }
         sandwichAnim?.start()
     }
@@ -327,9 +326,9 @@ class BottomNavDrawerFragment :
             // Animate the translationY of the backgroundContainer so just the account picker is
             // peeked above the BottomAppBar.
             backgroundContainer.translationY = progress *
-                ((scrimView.bottom - accountRecyclerView.height
-                    - resources.getDimension(R.dimen.bottom_app_bar_height)) -
-                    (backgroundContainer.getTag(R.id.tag_view_top_snapshot) as Int))
+                    ((scrimView.bottom - accountRecyclerView.height
+                            - resources.getDimension(R.dimen.bottom_app_bar_height)) -
+                            (backgroundContainer.getTag(R.id.tag_view_top_snapshot) as Int))
         }
 
         // Call any actions which have been registered to run on progress changes.

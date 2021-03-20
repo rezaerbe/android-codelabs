@@ -1,7 +1,7 @@
 package com.erbe.shrine.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.erbe.shrine.R
 import com.erbe.shrine.navigation.NavigationHost

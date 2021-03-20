@@ -2,13 +2,13 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="emailAttachment"
             type="com.erbe.reply.data.EmailAttachment" />
     </data>
 
-    <ImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/attachment_image_view"
         android:layout_height="match_parent"
         android:layout_width="150dp"

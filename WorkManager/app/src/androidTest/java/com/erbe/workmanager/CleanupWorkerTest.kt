@@ -13,13 +13,15 @@ class CleanupWorkerTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
     @get:Rule
     var wmRule = WorkManagerTestRule()
 
     @Test
     fun testCleanupWork() {
         val testUri = copyFileFromTestToTargetCtx(
-                wmRule.testContext, wmRule.targetContext, "test-image.png")
+            wmRule.testContext, wmRule.targetContext, "test-image.png"
+        )
         assertThat(uriFileExists(wmRule.targetContext, testUri.toString()), `is`(true))
 
         // Create a request

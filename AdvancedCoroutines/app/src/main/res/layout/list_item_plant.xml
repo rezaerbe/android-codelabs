@@ -6,7 +6,7 @@
     <data>
         <variable
             name="plant"
-            type="com.erbe.advancedcoroutines.database.Plant"/>
+            type="com.erbe.advancedcoroutines.database.Plant" />
     </data>
 
     <com.erbe.advancedcoroutines.ui.MaskedCardView
@@ -47,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/plant_item_image"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="Tomato"/>
+                tools:text="Tomato" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

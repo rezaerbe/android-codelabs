@@ -29,11 +29,11 @@ import kotlinx.coroutines.sync.withLock
  *        returned by [block] will be cached, and future calls to [getOrAwait] will return the
  *        cached value or throw a [CancellationException].
  */
-class CacheOnSuccess<T: Any>(
+class CacheOnSuccess<T : Any>(
     private val onErrorFallback: (suspend () -> T)? = null,
     private val block: suspend () -> T
 ) {
-    private val mutex =  Mutex()
+    private val mutex = Mutex()
 
     @Volatile
     private var deferred: Deferred<T>? = null
@@ -120,5 +120,4 @@ class CacheOnSuccess<T: Any>(
             throw throwable
         }
     }
-
 }

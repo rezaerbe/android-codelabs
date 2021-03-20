@@ -1,7 +1,7 @@
 package com.erbe.hilt.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.erbe.hilt.R
 import com.erbe.hilt.navigator.AppNavigator
 import com.erbe.hilt.navigator.Screens
@@ -16,7 +16,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject lateinit var navigator: AppNavigator
+    @Inject
+    lateinit var navigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

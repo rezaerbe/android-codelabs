@@ -21,8 +21,10 @@ import javax.inject.Inject
 class ButtonsFragment : Fragment() {
 
     @InMemoryLogger
-    @Inject lateinit var  logger: LoggerDataSource
-    @Inject lateinit var navigator: AppNavigator
+    @Inject
+    lateinit var logger: LoggerDataSource
+    @Inject
+    lateinit var navigator: AppNavigator
 
     override fun onCreateView(
         inflater: LayoutInflater,

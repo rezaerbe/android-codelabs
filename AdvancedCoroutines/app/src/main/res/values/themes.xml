@@ -26,5 +26,5 @@
         <item name="android:colorBackground">@color/sunflower_green_500</item>
     </style>
 
-    <style name="Theme.Sunflower" parent="Base.Theme.Sunflower"/>
+    <style name="Theme.Sunflower" parent="Base.Theme.Sunflower" />
 </resources>

@@ -23,8 +23,10 @@ import javax.inject.Inject
 class LogsFragment : Fragment() {
 
     @InMemoryLogger
-    @Inject lateinit var logger: LoggerDataSource
-    @Inject lateinit var dateFormatter: DateFormatter
+    @Inject
+    lateinit var logger: LoggerDataSource
+    @Inject
+    lateinit var dateFormatter: DateFormatter
 
     private lateinit var recyclerView: RecyclerView
 
@@ -66,8 +68,10 @@ private class LogsViewAdapter(
     class LogsViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogsViewHolder {
-        return LogsViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.text_row_item, parent, false) as TextView)
+        return LogsViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.text_row_item, parent, false) as TextView
+        )
     }
 
     @SuppressLint("SetTextI18n")

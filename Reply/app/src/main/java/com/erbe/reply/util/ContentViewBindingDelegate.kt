@@ -1,6 +1,5 @@
 package com.erbe.reply.util
 
-
 import android.app.Activity
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity

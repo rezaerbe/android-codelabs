@@ -1,10 +1,10 @@
 package com.erbe.coroutines.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.erbe.coroutines.R
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val database = getDatabase(this)
         val repository = TitleRepository(getNetworkService(), database.titleDao)
         val viewModel = ViewModelProvider(this, MainViewModel.FACTORY(repository))
-                .get(MainViewModel::class.java)
+            .get(MainViewModel::class.java)
 
         // When rootLayout is clicked call onMainViewClicked in ViewModel
         rootLayout.setOnClickListener {

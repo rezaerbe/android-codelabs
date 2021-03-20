@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="account"
             type="com.erbe.reply.data.Account" />
@@ -14,6 +15,6 @@
         app:glideChipIcon="@{account.avatar}"
         app:glideChipIconCenterCrop="@{true}"
         app:glideChipIconCircularCrop="@{true}"
-        android:text="@{account.fullName}"/>
+        android:text="@{account.fullName}" />
 
 </layout>

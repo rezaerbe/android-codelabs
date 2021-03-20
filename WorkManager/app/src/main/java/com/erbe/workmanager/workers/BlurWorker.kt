@@ -10,7 +10,6 @@ import androidx.work.workDataOf
 import com.erbe.workmanager.KEY_IMAGE_URI
 import com.erbe.workmanager.PROGRESS
 import timber.log.Timber
-import java.lang.IllegalArgumentException
 
 class BlurWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
@@ -35,7 +34,8 @@ class BlurWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
             val resolver = appContext.contentResolver
 
             val picture = BitmapFactory.decodeStream(
-                resolver.openInputStream(Uri.parse(resourceUri)))
+                resolver.openInputStream(Uri.parse(resourceUri))
+            )
 
             val output = blurBitmap(picture, appContext)
 

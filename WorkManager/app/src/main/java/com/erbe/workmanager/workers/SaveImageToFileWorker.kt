@@ -33,9 +33,11 @@ class SaveImageToFileWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
         return try {
             val resourceUri = inputData.getString(KEY_IMAGE_URI)
             val bitmap = BitmapFactory.decodeStream(
-                resolver.openInputStream(Uri.parse(resourceUri)))
+                resolver.openInputStream(Uri.parse(resourceUri))
+            )
             val imageUrl = MediaStore.Images.Media.insertImage(
-                resolver, bitmap, Title, dateFormatter.format(Date()))
+                resolver, bitmap, Title, dateFormatter.format(Date())
+            )
             if (!imageUrl.isNullOrEmpty()) {
                 val output = workDataOf(KEY_IMAGE_URI to imageUrl)
 

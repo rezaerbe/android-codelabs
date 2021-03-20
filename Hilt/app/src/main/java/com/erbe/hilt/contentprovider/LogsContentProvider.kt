@@ -8,9 +8,6 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.android.components.ApplicationComponent
-import java.lang.IllegalArgumentException
-import java.lang.IllegalStateException
-import java.lang.UnsupportedOperationException
 
 /** The authority of this content provider.  */
 private const val LOGS_TABLE = "logs"

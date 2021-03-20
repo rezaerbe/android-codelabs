@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
-import com.google.android.material.transition.MaterialContainerTransform
 import com.erbe.reply.R
 import com.erbe.reply.data.Account
 import com.erbe.reply.data.AccountStore
@@ -21,6 +20,7 @@ import com.erbe.reply.data.EmailStore
 import com.erbe.reply.databinding.ComposeRecipientChipBinding
 import com.erbe.reply.databinding.FragmentComposeBinding
 import com.erbe.reply.util.themeColor
+import com.google.android.material.transition.MaterialContainerTransform
 import kotlin.LazyThreadSafetyMode.NONE
 
 /**

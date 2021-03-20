@@ -19,15 +19,17 @@ data class Account(
     var isCurrentAccount: Boolean = false
 ) {
     val fullName: String = "$firstName $lastName"
-    @DrawableRes val checkedIcon: Int = if (isCurrentAccount) R.drawable.ic_done else 0
+    @DrawableRes
+    val checkedIcon: Int = if (isCurrentAccount) R.drawable.ic_done else 0
 }
 
 object AccountDiffCallback : DiffUtil.ItemCallback<Account>() {
     override fun areItemsTheSame(oldItem: Account, newItem: Account) =
         oldItem.email == newItem.email
+
     override fun areContentsTheSame(oldItem: Account, newItem: Account) =
         oldItem.firstName == newItem.firstName
-            && oldItem.lastName == newItem.lastName
-            && oldItem.avatar == newItem.avatar
-            && oldItem.isCurrentAccount == newItem.isCurrentAccount
+                && oldItem.lastName == newItem.lastName
+                && oldItem.avatar == newItem.avatar
+                && oldItem.isCurrentAccount == newItem.isCurrentAccount
 }

@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.MaterialSharedAxis
 import com.erbe.reply.R
 import com.erbe.reply.data.SearchSuggestion
 import com.erbe.reply.data.SearchSuggestionStore
 import com.erbe.reply.databinding.FragmentSearchBinding
 import com.erbe.reply.databinding.SearchSuggestionItemBinding
 import com.erbe.reply.databinding.SearchSuggestionTitleBinding
+import com.google.android.material.transition.MaterialSharedAxis
 
 /**
  * A [Fragment] that displays search.

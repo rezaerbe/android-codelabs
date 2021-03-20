@@ -11,13 +11,17 @@ import com.erbe.shrine.network.ProductEntry
  * Adapter used to show an asymmetric grid of products, with 2 items in the first column, and 1
  * item in the second column, and so on.
  */
-class StaggeredProductCardRecyclerViewAdapter(private val productList: List<ProductEntry>?) : RecyclerView.Adapter<StaggeredProductCardViewHolder>() {
+class StaggeredProductCardRecyclerViewAdapter(private val productList: List<ProductEntry>?) :
+    RecyclerView.Adapter<StaggeredProductCardViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         return position % 3
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StaggeredProductCardViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): StaggeredProductCardViewHolder {
         var layoutId = R.layout.shr_staggered_product_card_first
         if (viewType == 1) {
             layoutId = R.layout.shr_staggered_product_card_second
@@ -41,6 +45,4 @@ class StaggeredProductCardRecyclerViewAdapter(private val productList: List<Prod
     override fun getItemCount(): Int {
         return productList?.size ?: 0
     }
-
-
 }

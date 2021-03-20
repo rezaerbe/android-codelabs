@@ -91,10 +91,9 @@ object NavigationModel {
 
     private fun postListUpdate() {
         val newList = navigationMenuItems +
-            (NavigationModelItem.NavDivider("Folders")) +
-            EmailStore.getAllFolders().map { NavigationModelItem.NavEmailFolder(it) }
+                (NavigationModelItem.NavDivider("Folders")) +
+                EmailStore.getAllFolders().map { NavigationModelItem.NavEmailFolder(it) }
 
         _navigationList.value = newList
     }
 }
-

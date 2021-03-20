@@ -38,8 +38,8 @@ class NetworkService {
 
 interface SunflowerService {
     @GET("googlecodelabs/kotlin-coroutines/master/advanced-coroutines-codelab/sunflower/src/main/assets/plants.json")
-    suspend fun getAllPlants() : List<Plant>
+    suspend fun getAllPlants(): List<Plant>
 
     @GET("googlecodelabs/kotlin-coroutines/master/advanced-coroutines-codelab/sunflower/src/main/assets/custom_plant_sort_order.json")
-    suspend fun getCustomPlantSortOrder() : List<Plant>
+    suspend fun getCustomPlantSortOrder(): List<Plant>
 }

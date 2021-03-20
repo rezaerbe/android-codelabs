@@ -15,7 +15,8 @@ import org.mockito.Mockito.`when` as whenever
 class LoginViewModelTest {
 
     // Executes each task synchronously using Architecture Components.
-    @get:Rule var instantExecutorRule = InstantTaskExecutorRule()
+    @get:Rule
+    var instantExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var userManager: UserManager

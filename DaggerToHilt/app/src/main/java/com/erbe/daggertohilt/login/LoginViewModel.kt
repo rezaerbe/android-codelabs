@@ -12,7 +12,7 @@ import javax.inject.Inject
  * obtain information of what to show on the screen and handle complex logic.
  */
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val userManager: UserManager): ViewModel() {
+class LoginViewModel @Inject constructor(private val userManager: UserManager) : ViewModel() {
 
     private val _loginState = MutableLiveData<LoginViewState>()
     val loginState: LiveData<LoginViewState>
